@@ -40,6 +40,8 @@ void ACollectible::onComponentBeginOverlap(UPrimitiveComponent *OverlappedComp, 
 	{
 		if (ParticleToPlay)
 			UGameplayStatics::SpawnEmitterAtLocation(this, ParticleToPlay, GetActorLocation(), GetActorRotation(), true);
+		if (CollectSFX)
+			UGameplayStatics::PlaySoundAtLocation(this, CollectSFX, GetActorLocation());
 		if (charRef != nullptr)
 			if (charRef->CollectibleHandler != nullptr)
 				if (CollectibleType == ECollectibleType::CT_GOOD)
