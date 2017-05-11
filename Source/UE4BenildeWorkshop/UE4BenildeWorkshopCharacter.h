@@ -62,8 +62,10 @@ protected:
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
+	/*Blueprint Implementation of BeginPlay*/
 	UFUNCTION(BlueprintNativeEvent, Category = "-- Protected Functions --")
 		void onBeginPay();
+	/*Blueprint Implementation of Tick*/
 	UFUNCTION(BlueprintNativeEvent, Category = "-- Protected Functions --")
 		void onTick(const float& delta);
 

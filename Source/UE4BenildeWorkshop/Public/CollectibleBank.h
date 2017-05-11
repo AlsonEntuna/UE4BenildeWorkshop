@@ -7,6 +7,7 @@
 
 class ACollectible;
 
+// Event Delegates
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCollectibleCollectedEvent, ACollectible*, collectedCollectible);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCollectibleBankEmptyEvent);
 
@@ -17,11 +18,18 @@ class UE4BENILDEWORKSHOP_API ACollectibleBank : public AActor
 	
 public:	
 	ACollectibleBank();
+
+	/*Array of Collectibles*/
 	UPROPERTY(VisibleAnywhere, Category = "-- Public Attributes --")
 		TArray<ACollectible*> Collectibles;
+
+	/*Decleration of the CollectibleBankEmpty Event
+	*When UPROPERTY macro is present then you could use it either to bind
+	*/
 	UPROPERTY(BlueprintAssignable, Category = "-- CollectibleBank Events --")
 		FCollectibleBankEmptyEvent CollectibleBankEmptyEvent;
 
+	/**/
 	FCollectibleCollectedEvent CollectibleCollectedEvent;
 
 protected:
